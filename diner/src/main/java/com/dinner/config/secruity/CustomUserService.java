@@ -32,6 +32,7 @@ public class CustomUserService implements UserDetailsService {
         if(user.getState().equalsIgnoreCase("0")){
             throw new LockedException("用户账号被冻结，无法登陆请联系管理员！");
         }
+
         return user;
     }
 }
