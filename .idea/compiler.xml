@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="api-gateway" />
+        <module name="authentication-center" />
+        <module name="diner" />
+        <module name="dinner-consumer" />
+        <module name="dinner-produce" />
+        <module name="registry-center" />
+        <module name="zinpkin" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="api-gateway" target="1.8" />
+      <module name="authentication-center" target="1.8" />
+      <module name="diner" target="1.8" />
+      <module name="dinner" target="1.8" />
+      <module name="dinner-consumer" target="1.8" />
+      <module name="dinner-produce" target="1.8" />
+      <module name="registry-center" target="1.8" />
+      <module name="zinpkin" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
