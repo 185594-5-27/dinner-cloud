@@ -22,6 +22,8 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
         registry.addViewController("/login").setViewName("login");
         // 登陆成功跳转到首页
         registry.addViewController("/main").setViewName("main");
+        // 登陆成功tab首页
+        registry.addViewController("/home").setViewName("home");
     }
 
 }
