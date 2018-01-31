@@ -5,6 +5,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Map;
 
@@ -44,7 +45,7 @@ public interface GenericService<T, Q extends QueryBase> {
      * @return
      */
     @RequestMapping(value = "/removeBath",method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
-    Map<String,Object> removeBath(String json);
+    Map<String,Object> removeBath(@RequestParam("json")String json);
 
     /**
      * 功能描述：获取分页的数据

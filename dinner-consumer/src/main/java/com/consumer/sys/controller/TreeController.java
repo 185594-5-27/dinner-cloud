@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
 @RestController
+@RequestMapping("/tree")
 public class TreeController  extends GenericController<Tree,QueryTree> {
 
     @Autowired

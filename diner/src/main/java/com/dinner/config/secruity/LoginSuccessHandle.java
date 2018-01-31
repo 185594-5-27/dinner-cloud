@@ -1,6 +1,5 @@
 package com.dinner.config.secruity;
 
-import com.dinner.config.util.Uuid;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
@@ -17,15 +16,14 @@ import java.util.Set;
 * @create 2017/11/13 0013 
 */
 public class LoginSuccessHandle  implements AuthenticationSuccessHandler {
+
+
+
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
         String path = request.getContextPath() ;
         String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-        // 生成当前登陆用户的token
-        String token = Uuid.getUUid();
-        // 将生成的token重新放回页面
-        request.getSession().setAttribute("token",token);
        // if (roles.contains("ROLE_DINER")){
            // response.sendRedirect(basePath+"diningTable");
            // return;

@@ -1,4 +1,4 @@
-package com.dinner.config.util;
+package com.dinner.config.util.user;
 
 import com.dinner.entity.User;
 import org.springframework.security.core.GrantedAuthority;
@@ -28,6 +28,14 @@ public class UserInfoUtil {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         SecurityContextImpl securityContextImpl = (SecurityContextImpl) request.getSession().getAttribute("SPRING_SECURITY_CONTEXT");
         return (User) Optional.ofNullable(securityContextImpl.getAuthentication().getPrincipal()).orElse(null);
+    }
+
+    /**
+     * 功能描述：获取request对象
+     * @return
+     */
+    public static HttpServletRequest getRequest(){
+        return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
     }
 
     /**

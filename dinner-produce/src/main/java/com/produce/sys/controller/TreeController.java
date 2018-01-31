@@ -4,6 +4,7 @@ package com.produce.sys.controller;
 import com.produce.common.base.constant.SystemStaticConst;
 import com.produce.common.base.controller.GenericController;
 import com.produce.common.base.service.GenericService;
+import com.produce.common.util.redis.RedisCache;
 import com.produce.common.util.user.UserInfo;
 import com.produce.sys.entity.QueryTree;
 import com.produce.sys.entity.Tree;
@@ -12,8 +13,6 @@ import com.produce.sys.service.TreeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -35,6 +34,9 @@ public class TreeController extends GenericController<Tree,QueryTree> {
     @Autowired
     private TreeService treeService;
 
+    @Autowired
+    private RedisCache redisCache;
+
     @Override
     protected GenericService<Tree, QueryTree> getService() {
         return treeService;
@@ -48,10 +50,10 @@ public class TreeController extends GenericController<Tree,QueryTree> {
     @ResponseBody
     public Map<String,Object> mainTree(String token){
         Map<String,Object> result = new HashMap<String, Object>();
-        List<Tree> trees = UserInfo.loadUserTree(treeService,UserInfo.getUser(token));
+        List<Tree> trees = UserInfo.loadUserTree(treeService,(User)redisCache.getObject(token,User.class));
         result.put("data",trees);
         result.put(SystemStaticConst.RESULT, SystemStaticConst.SUCCESS);
-        return null;
+        return result;
     }
 
 

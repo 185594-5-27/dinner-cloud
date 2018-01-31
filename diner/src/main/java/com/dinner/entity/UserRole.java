@@ -1,9 +1,14 @@
 package com.dinner.entity;
 
+import java.io.Serializable;
+
 /**
  *@author linzf
  **/
-public class UserRole {
+public class UserRole implements Serializable {
+
+	private static final long serialVersionUID = -7314462528191718525L;
+
 	private long id;
 	private String name;
 	private String roleName;

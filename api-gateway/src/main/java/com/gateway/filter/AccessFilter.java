@@ -67,7 +67,8 @@ public class AccessFilter extends ZuulFilter {
         response.setHeader("Access-Control-Allow-Methods","POST,GET,OPTIONS,DELETE");
         response.setHeader("Access-Control-Allow-Origin","http://127.0.0.1:8080");
         log.info("send {} request to{}", request.getMethod () ,request.getRequestURL().toString());
-        Object accessToken = request.getParameter("accessToken");
+        Object accessToken = request.getParameter("token");
+        System.out.println("accessToken===="+accessToken);
         /*
          if(accessToken == null) {
             log.warn("access token is empty");
