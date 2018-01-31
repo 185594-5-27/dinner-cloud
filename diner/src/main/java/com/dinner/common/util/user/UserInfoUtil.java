@@ -1,4 +1,4 @@
-package com.dinner.config.util.user;
+package com.dinner.common.util.user;
 
 import com.dinner.entity.User;
 import org.springframework.security.core.GrantedAuthority;

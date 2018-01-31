@@ -15,6 +15,23 @@ import java.util.Map;
 public interface GenericService<T, Q extends QueryBase> {
 
     /**
+     * 功能描述：根据ID来获取数据
+     * @param id
+     * @return
+     */
+    @RequestMapping(value = "/getById",method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
+    public Map<String,Object> getById(@RequestParam("id")int id);
+
+
+    /**
+     * 功能描述：获取数据
+     * @param entity
+     * @return
+     */
+    @RequestMapping(value = "/get",method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
+    public Map<String,Object> get(@RequestBody T entity);
+
+    /**
      * 功能描述：保存数据
      * @param entity
      * @return

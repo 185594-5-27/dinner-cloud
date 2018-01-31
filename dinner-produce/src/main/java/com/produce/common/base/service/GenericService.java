@@ -14,7 +14,16 @@ import java.util.List;
  * */
 public abstract class GenericService<T, Q extends QueryBase> {
 	protected abstract GenericDao<T, Q> getDao();
-	
+
+	/**
+	 * 功能描述：根据ID来获取数据
+	 * @param id
+	 * @return
+	 */
+	public T getById(int id){
+		return getDao().getById(id);
+	}
+
 	/**
 	 * 根据主键值获取对象
 	 * @param entity

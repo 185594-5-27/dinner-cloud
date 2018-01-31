@@ -10,6 +10,12 @@
 		<result property="isLoad" column="is_load"/>
 	</resultMap>
 
+	<!--根据主键ID获取对象-->
+	<select id="getById" parameterType="java.lang.Integer" resultMap="DictMap">
+		SELECT id,code,text,type,value,is_load FROM dict
+		WHERE id=#{id}
+	</select>
+
 	<!--根据主键获取对象-->
 	<select id="get" parameterType="com.produce.sys.entity.Dict" resultMap="DictMap">
 		SELECT id,code,text,type,value,is_load FROM dict 

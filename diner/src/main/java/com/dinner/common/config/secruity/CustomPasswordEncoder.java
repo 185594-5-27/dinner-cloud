@@ -1,4 +1,4 @@
-package com.dinner.config.secruity;
+package com.dinner.common.config.secruity;
 
 import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;

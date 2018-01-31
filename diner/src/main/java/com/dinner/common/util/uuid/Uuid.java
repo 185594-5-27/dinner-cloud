@@ -1,4 +1,4 @@
-package com.dinner.config.util.uuid;
+package com.dinner.common.util.uuid;
 
 import java.util.Random;
 import java.util.UUID;

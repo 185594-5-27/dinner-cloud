@@ -1,4 +1,4 @@
-package com.dinner.config.util.json;
+package com.dinner.common.util.json;
 
 /*
 * 类描述：

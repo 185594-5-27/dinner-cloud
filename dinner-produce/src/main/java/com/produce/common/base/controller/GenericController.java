@@ -26,6 +26,49 @@ public abstract class GenericController<T, Q extends QueryBase> {
 	// 抽象方法
 	protected abstract GenericService<T, Q> getService();
 
+	/**
+	 * 功能描述：根据ID来获取数据
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping(value = "/getById",method = RequestMethod.POST)
+	public Map<String,Object> getById(int id)throws Exception{
+		Map<String,Object> result = new HashMap<String, Object>();
+		T t = getService().getById(id);
+		if(t==null){
+			result.put(SystemStaticConst.RESULT,SystemStaticConst.FAIL);
+			result.put(SystemStaticConst.MSG,"获取数据失败！");
+			result.put("entity",t);
+		}else{
+			result.put(SystemStaticConst.RESULT,SystemStaticConst.SUCCESS);
+			result.put(SystemStaticConst.MSG,"获取数据成功！");
+			result.put("entity",t);
+		}
+		return result;
+	}
+
+
+	/**
+	 * 功能描述：获取数据
+	 * @param entity
+	 * @return
+	 */
+	@RequestMapping(value = "/get",method = RequestMethod.POST)
+	public Map<String,Object> get(@RequestBody T entity)throws Exception{
+		Map<String,Object> result = new HashMap<String, Object>();
+		T t = getService().get(entity);
+		if(t==null){
+			result.put(SystemStaticConst.RESULT,SystemStaticConst.FAIL);
+			result.put(SystemStaticConst.MSG,"获取数据失败！");
+			result.put("entity",t);
+		}else{
+			result.put(SystemStaticConst.RESULT,SystemStaticConst.SUCCESS);
+			result.put(SystemStaticConst.MSG,"获取数据成功！");
+			result.put("entity",t);
+		}
+		return result;
+	}
+
 
 	/**
 	 * 功能描述：保存数据

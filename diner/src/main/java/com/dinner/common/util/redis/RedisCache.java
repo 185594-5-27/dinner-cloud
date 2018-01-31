@@ -1,6 +1,6 @@
-package com.dinner.config.util.redis;
+package com.dinner.common.util.redis;
 
-import com.dinner.config.util.json.JsonHelper;
+import com.dinner.common.util.json.JsonHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.connection.RedisConnection;

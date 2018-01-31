@@ -2,18 +2,14 @@ package com.consumer.common.base.controller;
 
 
 
-import com.consumer.common.base.constant.SystemStaticConst;
-import com.consumer.common.base.entity.Page;
 import com.consumer.common.base.entity.QueryBase;
 import com.consumer.common.base.service.GenericService;
-import com.consumer.common.util.json.JsonHelper;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import java.lang.reflect.ParameterizedType;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 
@@ -22,6 +18,25 @@ public abstract class GenericController<T, Q extends QueryBase> {
 	// 抽象方法
 	protected abstract GenericService<T, Q> getService();
 
+	/**
+	 * 功能描述：根据ID来获取数据
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping(value = "/getById",method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
+	public Map<String,Object> getById(int id){
+		return getService().getById(id);
+	}
+
+	/**
+	 * 功能描述：获取数据
+	 * @param entity
+	 * @return
+	 */
+	@RequestMapping(value = "/get",method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
+	public Map<String,Object> get(T entity)throws Exception {
+		return getService().get(entity);
+	}
 
 	/**
 	 * 功能描述：保存数据

@@ -1,4 +1,4 @@
-package com.dinner.config.secruity;
+package com.dinner.common.config.secruity;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;

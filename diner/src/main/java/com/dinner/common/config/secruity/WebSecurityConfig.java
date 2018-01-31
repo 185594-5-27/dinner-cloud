@@ -1,4 +1,4 @@
-package com.dinner.config.secruity;
+package com.dinner.common.config.secruity;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -10,6 +10,14 @@ import java.util.List;
  * Dao通用模版
  * */
 public interface GenericDao<T, Q extends QueryBase>{
+
+	/**
+	 * 功能描述：根据ID来获取数据
+	 * @param id
+	 * @return
+	 */
+	T getById(int id);
+
 	/**
 	 * 根据主键值获取对象
 	 * @param entity

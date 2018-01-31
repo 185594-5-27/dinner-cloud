@@ -1,9 +1,9 @@
-package com.dinner.config.secruity;
+package com.dinner.common.config.secruity;
 
 
-import com.dinner.config.util.redis.RedisCache;
-import com.dinner.config.util.user.UserInfoUtil;
-import com.dinner.config.util.uuid.Uuid;
+import com.dinner.common.util.redis.RedisCache;
+import com.dinner.common.util.user.UserInfoUtil;
+import com.dinner.common.util.uuid.Uuid;
 import com.dinner.dao.UserDao;
 import com.dinner.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
