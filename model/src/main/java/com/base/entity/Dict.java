@@ -1,27 +1,23 @@
-package com.produce.sys.entity;
-
-
-import com.produce.common.base.entity.QueryBase;
+package com.base.entity;
 
 /**
  *@author linzf
  **/
-public class QueryDict extends QueryBase {
-
-	public QueryDict(){
-		super();
-	}
-
-	public QueryDict(String isLoad){
-		this.isLoad = isLoad;
-	}
-
-
+public class Dict {
+	private int id;
 	private String code;
 	private String text;
 	private String type;
 	private String value;
 	private String isLoad;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getCode() {
 		return code;

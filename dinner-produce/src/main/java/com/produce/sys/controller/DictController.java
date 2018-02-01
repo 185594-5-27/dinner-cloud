@@ -1,19 +1,17 @@
 package com.produce.sys.controller;
 
 
+import com.base.entity.Dict;
+import com.base.entity.QueryDict;
 import com.produce.common.base.constant.SystemStaticConst;
 import com.produce.common.base.controller.GenericController;
 import com.produce.common.base.service.GenericService;
 import com.produce.common.util.dict.DictCache;
-import com.produce.sys.entity.Dict;
-import com.produce.sys.entity.QueryDict;
 import com.produce.sys.service.DictService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;

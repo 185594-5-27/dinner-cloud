@@ -1,12 +1,12 @@
 package com.produce.sys.service;
 
+import com.base.entity.QueryTree;
+import com.base.entity.Tree;
+import com.base.entity.User;
 import com.produce.common.base.dao.GenericDao;
 import com.produce.common.base.service.GenericService;
 import com.produce.sys.dao.RoleAssociateTreeDao;
 import com.produce.sys.dao.TreeDao;
-import com.produce.sys.entity.QueryTree;
-import com.produce.sys.entity.Tree;
-import com.produce.sys.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

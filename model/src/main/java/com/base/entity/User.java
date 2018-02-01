@@ -1,12 +1,15 @@
-package com.consumer.sys.entity;
+package com.base.entity;
 
+
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
 /**
  *@author linzf
  **/
-public class User  {
+public class User {
 
 	public User(){
 		super();
@@ -33,24 +36,6 @@ public class User  {
 	private Date lastLoginDate;
 	// 用户角色信息
 	private List<UserRole> roles;
-	// 权限集合数据
-	private String roleArray;
-
-	public List<UserRole> getRoles() {
-		return roles;
-	}
-
-	public void setRoles(List<UserRole> roles) {
-		this.roles = roles;
-	}
-
-	public String getRoleArray() {
-		return roleArray;
-	}
-
-	public void setRoleArray(String roleArray) {
-		this.roleArray = roleArray;
-	}
 
 	public int getId() {
 		return id;
@@ -70,6 +55,15 @@ public class User  {
 
 	public String getPassword() {
 		return password;
+	}
+
+
+	public List<UserRole> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<UserRole> roles) {
+		this.roles = roles;
 	}
 
 	public void setPassword(String password) {
@@ -172,5 +166,23 @@ public class User  {
 		this.lastLoginDate = lastLoginDate;
 	}
 
+	/**
+	 * 功能描述：组装角色数据集合
+	 * @param roleArray
+	 */
+	public void packagingRoles(String roleArray){
+		List<UserRole> roles = new ArrayList<UserRole>();
+		if(roleArray!=null){
+			UserRole userRole = null;
+			for(String roleId:roleArray.split(",")){
+				if(!roleId.isEmpty()){
+					userRole = new UserRole();
+					userRole.setId(Long.parseLong(roleId));
+					roles.add(userRole);
+				}
+			}
+		}
+		this.setRoles(roles);
+	}
 
 }

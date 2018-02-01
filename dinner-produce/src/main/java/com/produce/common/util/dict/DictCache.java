@@ -4,7 +4,9 @@ package com.produce.common.util.dict;
 
 
 
-import com.produce.sys.entity.Dict;
+
+
+import com.base.entity.Dict;
 
 import java.util.Collection;
 import java.util.Hashtable;

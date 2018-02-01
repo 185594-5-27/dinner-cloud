@@ -19,7 +19,7 @@
 		<result property="state" column="state"/>
 		<result property="type" column="type"/>
 		<result property="lastLoginDate" column="last_login_date"/>
-		<collection property="roles" ofType="com.dinner.entity.UserRole" javaType="java.util.ArrayList">
+		<collection property="roles" ofType="com.base.entity.UserRole" javaType="java.util.ArrayList">
 			<result column="user_role_id" property="id" jdbcType="VARCHAR" />
 			<result column="name" property="name" jdbcType="VARCHAR" />
 			<result column="role_name" property="roleName" jdbcType="VARCHAR" />

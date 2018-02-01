@@ -2,10 +2,10 @@ package com.produce.sys.dao;
 
 
 
+import com.base.entity.QueryTree;
+import com.base.entity.Tree;
+import com.base.entity.User;
 import com.produce.common.base.dao.GenericDao;
-import com.produce.sys.entity.QueryTree;
-import com.produce.sys.entity.Tree;
-import com.produce.sys.entity.User;
 
 import java.util.List;
 

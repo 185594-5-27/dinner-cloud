@@ -1,7 +1,7 @@
-package com.consumer.sys.entity;
+package com.base.entity;
 
 
-import com.consumer.common.base.entity.QueryBase;
+import com.base.common.QueryBase;
 
 /**
  *@author linzf
@@ -14,10 +14,7 @@ public class QueryDict extends QueryBase {
 
 	public QueryDict(String isLoad){
 		this.isLoad = isLoad;
-
 	}
-
-
 
 
 	private String code;

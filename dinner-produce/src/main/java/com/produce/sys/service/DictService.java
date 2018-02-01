@@ -1,11 +1,11 @@
 package com.produce.sys.service;
 
 
+import com.base.entity.Dict;
+import com.base.entity.QueryDict;
 import com.produce.common.base.dao.GenericDao;
 import com.produce.common.base.service.GenericService;
 import com.produce.sys.dao.DictDao;
-import com.produce.sys.entity.Dict;
-import com.produce.sys.entity.QueryDict;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

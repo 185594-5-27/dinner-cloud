@@ -1,7 +1,7 @@
-package com.produce.sys.entity;
+package com.base.entity;
 
 
-import com.produce.common.base.entity.QueryBase;
+import com.base.common.QueryBase;
 
 /**
  *@author linzf

@@ -4,9 +4,10 @@
     <file url="file://$PROJECT_DIR$/api-gateway" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/authentication-center" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/diner" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/dinner" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/dinner-consumer" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/dinner-produce" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/model" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/model" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/registry-center" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zinpkin" charset="UTF-8" />
   </component>

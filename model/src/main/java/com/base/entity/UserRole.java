@@ -1,4 +1,4 @@
-package com.dinner.entity;
+package com.base.entity;
 
 import java.io.Serializable;
 

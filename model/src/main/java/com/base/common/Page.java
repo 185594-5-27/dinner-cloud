@@ -1,4 +1,4 @@
-package com.consumer.common.base.entity;
+package com.base.common;
 
 import java.util.List;
 

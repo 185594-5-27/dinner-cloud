@@ -1,6 +1,7 @@
 package com.consumer.common.base.service;
 
-import com.consumer.common.base.entity.QueryBase;
+
+import com.base.common.QueryBase;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

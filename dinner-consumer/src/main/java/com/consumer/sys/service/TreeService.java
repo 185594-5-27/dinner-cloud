@@ -1,9 +1,9 @@
 package com.consumer.sys.service;
 
+import com.base.entity.QueryTree;
+import com.base.entity.Tree;
 import com.consumer.common.base.service.GenericService;
 import com.consumer.common.config.FullLogConfiguration;
-import com.consumer.sys.entity.QueryTree;
-import com.consumer.sys.entity.Tree;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;

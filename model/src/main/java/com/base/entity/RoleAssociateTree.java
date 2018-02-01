@@ -1,4 +1,4 @@
-package com.produce.sys.entity;
+package com.base.entity;
 
 /**
  *@author linzf

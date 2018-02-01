@@ -11,6 +11,8 @@
         <module name="diner" />
         <module name="dinner-consumer" />
         <module name="dinner-produce" />
+        <module name="modal" />
+        <module name="model" />
         <module name="registry-center" />
         <module name="zinpkin" />
       </profile>
@@ -22,6 +24,8 @@
       <module name="dinner" target="1.8" />
       <module name="dinner-consumer" target="1.8" />
       <module name="dinner-produce" target="1.8" />
+      <module name="modal" target="1.5" />
+      <module name="model" target="1.8" />
       <module name="registry-center" target="1.8" />
       <module name="zinpkin" target="1.8" />
     </bytecodeTargetLevel>

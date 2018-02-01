@@ -10,6 +10,8 @@
         <option value="$PROJECT_DIR$/dinner-consumer/pom.xml" />
         <option value="$PROJECT_DIR$/zinpkin/pom.xml" />
         <option value="$PROJECT_DIR$/diner/pom.xml" />
+        <option value="$PROJECT_DIR$/model/pom.xml" />
+        <option value="$PROJECT_DIR$/modal/pom.xml" />
       </list>
     </option>
   </component>

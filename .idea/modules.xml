@@ -7,6 +7,8 @@
       <module fileurl="file://$PROJECT_DIR$/diner/diner.iml" filepath="$PROJECT_DIR$/diner/diner.iml" />
       <module fileurl="file://$PROJECT_DIR$/dinner-consumer/dinner-consumer.iml" filepath="$PROJECT_DIR$/dinner-consumer/dinner-consumer.iml" />
       <module fileurl="file://$PROJECT_DIR$/dinner-produce/dinner-produce.iml" filepath="$PROJECT_DIR$/dinner-produce/dinner-produce.iml" />
+      <module fileurl="file://$PROJECT_DIR$/model/modal.iml" filepath="$PROJECT_DIR$/model/modal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/model/model.iml" filepath="$PROJECT_DIR$/model/model.iml" />
       <module fileurl="file://$PROJECT_DIR$/registry-center/registry-center.iml" filepath="$PROJECT_DIR$/registry-center/registry-center.iml" />
       <module fileurl="file://$PROJECT_DIR$/zinpkin/zinpkin.iml" filepath="$PROJECT_DIR$/zinpkin/zinpkin.iml" />
     </modules>

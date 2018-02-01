@@ -1,9 +1,9 @@
 package com.produce.common.base.controller;
 
 
+import com.base.common.Page;
+import com.base.common.QueryBase;
 import com.produce.common.base.constant.SystemStaticConst;
-import com.produce.common.base.entity.Page;
-import com.produce.common.base.entity.QueryBase;
 import com.produce.common.base.service.GenericService;
 import com.produce.common.util.json.JsonHelper;
 import org.springframework.http.MediaType;

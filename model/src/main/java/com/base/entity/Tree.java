@@ -1,4 +1,4 @@
-package com.consumer.sys.entity;
+package com.base.entity;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,11 +1,10 @@
 package com.consumer.sys.service;
 
+import com.base.entity.Dict;
+import com.base.entity.QueryDict;
 import com.consumer.common.base.service.GenericService;
 import com.consumer.common.config.FullLogConfiguration;
-import com.consumer.sys.entity.Dict;
-import com.consumer.sys.entity.QueryDict;
 import org.springframework.cloud.netflix.feign.FeignClient;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 

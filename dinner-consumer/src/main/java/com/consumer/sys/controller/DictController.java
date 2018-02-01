@@ -1,9 +1,9 @@
 package com.consumer.sys.controller;
 
+import com.base.entity.Dict;
+import com.base.entity.QueryDict;
 import com.consumer.common.base.controller.GenericController;
 import com.consumer.common.base.service.GenericService;
-import com.consumer.sys.entity.Dict;
-import com.consumer.sys.entity.QueryDict;
 import com.consumer.sys.service.DictService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;

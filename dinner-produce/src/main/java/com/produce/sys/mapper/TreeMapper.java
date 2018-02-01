@@ -2,8 +2,8 @@ package com.produce.sys.mapper;
 
 
 
+import com.base.entity.Tree;
 import com.produce.sys.dto.TreeDTO;
-import com.produce.sys.entity.Tree;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;

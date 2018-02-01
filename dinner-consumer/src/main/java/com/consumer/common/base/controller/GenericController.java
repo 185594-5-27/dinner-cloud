@@ -2,13 +2,12 @@ package com.consumer.common.base.controller;
 
 
 
-import com.consumer.common.base.entity.QueryBase;
+
+import com.base.common.QueryBase;
 import com.consumer.common.base.service.GenericService;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Map;
 

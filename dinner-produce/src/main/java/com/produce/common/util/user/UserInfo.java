@@ -2,9 +2,9 @@ package com.produce.common.util.user;
 
 
 
+import com.base.entity.Tree;
+import com.base.entity.User;
 import com.produce.common.util.node.NodeUtil;
-import com.produce.sys.entity.Tree;
-import com.produce.sys.entity.User;
 import com.produce.sys.service.TreeService;
 
 import java.util.*;

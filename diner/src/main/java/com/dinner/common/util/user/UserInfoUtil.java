@@ -1,6 +1,6 @@
 package com.dinner.common.util.user;
 
-import com.dinner.entity.User;
+import com.base.entity.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.context.SecurityContextImpl;

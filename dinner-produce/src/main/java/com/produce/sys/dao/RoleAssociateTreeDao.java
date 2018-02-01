@@ -1,11 +1,11 @@
 package com.produce.sys.dao;
 
 
+import com.base.entity.QueryRoleAssociateTree;
+import com.base.entity.RoleAssociateTree;
+import com.base.entity.Tree;
+import com.base.entity.UserRole;
 import com.produce.common.base.dao.GenericDao;
-import com.produce.sys.entity.QueryRoleAssociateTree;
-import com.produce.sys.entity.RoleAssociateTree;
-import com.produce.sys.entity.Tree;
-import com.produce.sys.entity.UserRole;
 
 /**
  *@author linzf

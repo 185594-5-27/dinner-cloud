@@ -2,9 +2,9 @@ package com.produce.common.base.service;
 
 
 
+import com.base.common.Page;
+import com.base.common.QueryBase;
 import com.produce.common.base.dao.GenericDao;
-import com.produce.common.base.entity.Page;
-import com.produce.common.base.entity.QueryBase;
 
 import java.util.List;
 

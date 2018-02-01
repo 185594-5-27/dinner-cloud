@@ -1,14 +1,14 @@
 package com.produce.sys.controller;
 
 
+import com.base.entity.QueryTree;
+import com.base.entity.Tree;
+import com.base.entity.User;
 import com.produce.common.base.constant.SystemStaticConst;
 import com.produce.common.base.controller.GenericController;
 import com.produce.common.base.service.GenericService;
 import com.produce.common.util.redis.RedisCache;
 import com.produce.common.util.user.UserInfo;
-import com.produce.sys.entity.QueryTree;
-import com.produce.sys.entity.Tree;
-import com.produce.sys.entity.User;
 import com.produce.sys.service.TreeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;

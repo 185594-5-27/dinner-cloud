@@ -1,4 +1,4 @@
-package com.produce.common.base.entity;
+package com.base.common;
 
 /*
 * 类描述：查询基础类

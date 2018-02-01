@@ -1,9 +1,9 @@
 package com.consumer.sys.controller;
 
+import com.base.entity.QueryTree;
+import com.base.entity.Tree;
 import com.consumer.common.base.controller.GenericController;
 import com.consumer.common.base.service.GenericService;
-import com.consumer.sys.entity.QueryTree;
-import com.consumer.sys.entity.Tree;
 import com.consumer.sys.service.TreeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
