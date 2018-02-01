@@ -28,8 +28,6 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
         registry.addViewController("/dictList").setViewName("/sys/dict/dictList");
         // 添加字典
         registry.addViewController("/dict/addPage").setViewName("/sys/dict/add");
-        // 更新字典
-        registry.addViewController("/dict/updatePage").setViewName("/sys/dict/update");
     }
 
 }
