@@ -1,6 +1,7 @@
 package com.gateway.filter;
 
 import com.gateway.service.AuthenticationService;
+import com.gateway.util.IPUtil;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 
@@ -68,7 +69,7 @@ public class AccessFilter extends ZuulFilter {
         response.setHeader("Access-Control-Allow-Origin","http://127.0.0.1:8080");
         log.info("send {} request to{}", request.getMethod () ,request.getRequestURL().toString());
         Object accessToken = request.getParameter("token");
-        System.out.println("accessToken===="+accessToken);
+        System.out.println("accessToken===="+accessToken+"====IP==="+ IPUtil.getIpAddress(request));
         /*
          if(accessToken == null) {
             log.warn("access token is empty");
