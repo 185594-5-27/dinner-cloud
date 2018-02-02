@@ -3,22 +3,17 @@ package com.produce.common.base.controller;
 
 import com.base.common.Page;
 import com.base.common.QueryBase;
+import com.base.util.json.JsonHelper;
 import com.produce.common.base.constant.SystemStaticConst;
 import com.produce.common.base.service.GenericService;
-import com.produce.common.util.json.JsonHelper;
-import org.springframework.http.MediaType;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 
 public abstract class GenericController<T, Q extends QueryBase> {

@@ -1,6 +1,7 @@
 package com.base.entity;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -9,7 +10,9 @@ import java.util.List;
 /**
  *@author linzf
  **/
-public class User {
+public class User implements Serializable {
+
+	private static final long serialVersionUID = -880218717499238863L;
 
 	public User(){
 		super();

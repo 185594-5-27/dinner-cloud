@@ -19,7 +19,7 @@
         })
         var token = [[${session.token }]];
         $.fn.bootstrapTree({url:"http://127.0.0.1:5100/v1/dinner/tree/mainTree?token="+token,treeId:'menu_tree',tabId:"tabContainer"});
-        $.fn.dictUtil({url:"http://127.0.0.1:5100/v1/dinner/dict/loadDict"});
+        $.fn.dictUtil({url:"http://127.0.0.1:5100/v1/dinner/dict/loadDict?token="+token});
     });
 </script>
 <body >

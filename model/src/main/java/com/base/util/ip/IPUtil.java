@@ -1,4 +1,4 @@
-package com.gateway.util;
+package com.base.util.ip;
 
 import javax.servlet.http.HttpServletRequest;
 

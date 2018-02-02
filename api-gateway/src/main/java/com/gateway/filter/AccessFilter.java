@@ -1,7 +1,8 @@
 package com.gateway.filter;
 
+import com.base.entity.Identify;
+import com.base.util.ip.IPUtil;
 import com.gateway.service.AuthenticationService;
-import com.gateway.util.IPUtil;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
 
 /*
 * 类描述：
@@ -69,8 +71,6 @@ public class AccessFilter extends ZuulFilter {
         response.setHeader("Access-Control-Allow-Origin","http://127.0.0.1:8080");
         log.info("send {} request to{}", request.getMethod () ,request.getRequestURL().toString());
         Object accessToken = request.getParameter("token");
-        System.out.println("accessToken===="+accessToken+"====IP==="+ IPUtil.getIpAddress(request));
-        /*
          if(accessToken == null) {
             log.warn("access token is empty");
             ctx.setSendZuulResponse(false);
@@ -80,8 +80,16 @@ public class AccessFilter extends ZuulFilter {
             ctx.set("error.status_code", HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             ctx.set("error.exception",new RuntimeException("AccessToken不允许为空！"));
         }
-         authenticationService.identify(accessToken.toString());
-         */
+        Map<String,Object> result = authenticationService.identify(new Identify((String)accessToken,IPUtil.getIpAddress(request)));
+        System.out.println("鉴权中心鉴定结果是："+result.get("msg"));
+         if((boolean)result.get("result")==false){
+             ctx.setSendZuulResponse(false);
+             // 401错误表示需要登陆才可以
+             ctx.setResponseStatusCode(401);
+             //为了被error过滤器捕获
+             ctx.set("error.status_code", HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+             ctx.set("error.exception",new RuntimeException((String)result.get("msg")));
+         }
         return null;
     }
 }

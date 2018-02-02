@@ -1,21 +1,18 @@
-package com.dinner.common.util.json;
+package com.base.util.json;
 
 /*
 * 类描述：
 * @auther linzf
 * @create 2018/1/31 0031 
 */
+
+import com.google.gson.*;
+import com.google.gson.reflect.TypeToken;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import com.google.gson.reflect.TypeToken;
 
 /**
  *

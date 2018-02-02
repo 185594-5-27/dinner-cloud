@@ -1,9 +1,12 @@
 package com.gateway.service;
 
+import com.base.entity.Identify;
 import org.springframework.cloud.netflix.feign.FeignClient;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.Map;
 
 /*
 * 类描述：
@@ -16,9 +19,9 @@ public interface AuthenticationService {
 
     /**
      * 功能描述：调用生产者端的轨迹处理方法
-     * @param token
+     * @param identify
      */
     @RequestMapping(value = "/identify" ,method = RequestMethod.POST)
-    String identify(@RequestParam("token") String token);
+    Map<String,Object> identify(@RequestBody Identify identify);
 
 }

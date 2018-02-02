@@ -1,6 +1,7 @@
-package com.dinner.common.util.redis;
+package com.base.util.redis;
 
-import com.dinner.common.util.json.JsonHelper;
+import com.base.util.json.JsonHelper;
+import com.base.util.serialize.SerializeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.connection.RedisConnection;
@@ -58,7 +59,7 @@ public class RedisCache {
     }
 
 
-    public <T> List<T> getList(String key,Class<T> clz) {
+    public <T> List<T> getList(final String key,Class<T> clz) {
         String json = getString(key);
         if(json!=null){
             List<T> list = JsonHelper.toList(json, clz);
@@ -67,25 +68,45 @@ public class RedisCache {
         return null;
     }
 
-    public Object getObject(String key,Class clz){
-        String json = lPop(key);
-        Object obj = JsonHelper.toObject(json,clz);
-        setObject(key,obj);
-        return obj;
-    }
-
-
-    public long setObject(String key, Object obj) {
-        String value = JsonHelper.toJson(obj);
-        long result = redisTemplate.execute(new RedisCallback<Long>() {
+    /**
+     * 功能描述：从redis中获取数据
+     * @param key
+     * @param elementType
+     * @param <T>
+     * @return
+     */
+    public <T> T getObject(final String key,Class<T> elementType){
+        return redisTemplate.execute(new RedisCallback<T>() {
             @Override
-            public Long doInRedis(RedisConnection connection) throws DataAccessException {
-                RedisSerializer<String> serializer = redisTemplate.getStringSerializer();
-                long count = connection.lPush(serializer.serialize(key), serializer.serialize(value));
-                return count;
+            public T doInRedis(RedisConnection connection)
+                    throws DataAccessException {
+                byte[] keybytes = redisTemplate.getStringSerializer().serialize(key);
+                if (connection.exists(keybytes)) {
+                    byte[] valuebytes = connection.get(keybytes);
+                    @SuppressWarnings("unchecked")
+                    T value = (T) SerializeUtil.unserialize(valuebytes);
+                    return value;
+                }
+                return null;
             }
         });
-        return result;
+    }
+
+    /**
+     * 功能描述：设值到redis中
+     * @param key
+     * @param obj
+     */
+    public void setObject(String key, Object obj) {
+        final byte[] bytes = SerializeUtil.serialize(obj);
+        redisTemplate.execute(new RedisCallback<Object>() {
+            @Override
+            public Object doInRedis(RedisConnection connection)
+                    throws DataAccessException {
+                connection.set(redisTemplate.getStringSerializer().serialize(key), bytes);
+                return null;
+            }
+        });
     }
 
 
@@ -114,7 +135,6 @@ public class RedisCache {
         });
         return result;
     }
-
 
 
 }
