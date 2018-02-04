@@ -81,7 +81,7 @@ public class AccessFilter extends ZuulFilter {
             ctx.set("error.exception",new RuntimeException("AccessToken不允许为空！"));
         }
         Map<String,Object> result = authenticationService.identify(new Identify((String)accessToken,IPUtil.getIpAddress(request)));
-        System.out.println("鉴权中心鉴定结果是："+result.get("msg"));
+        log.info("鉴权中心鉴定结果是：", result.get("msg"));
          if((boolean)result.get("result")==false){
              ctx.setSendZuulResponse(false);
              // 401错误表示需要登陆才可以
