@@ -1,7 +1,7 @@
-package com.dinner.dao;
+package com.dinner.sys.dao;
 
 
-import com.dinner.entity.User;
+import com.dinner.sys.entity.User;
 
 /**
  * Created by Administrator on 2018/1/24 0024.

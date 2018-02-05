@@ -1,5 +1,6 @@
 package com.gateway;
 
+import com.base.util.redis.RedisCache;
 import com.gateway.filter.AccessFilter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -22,4 +23,5 @@ public class ApiGatewayApplication {
 	public AccessFilter accessFilter() {
 		return new AccessFilter();
 	}
+
 }

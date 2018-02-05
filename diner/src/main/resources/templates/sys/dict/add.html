@@ -1,7 +1,7 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <body>
-<form id="dictForm"  role="form" method="post" action="http://127.0.0.1:5100/v1/dinner/dict/save">
+<form id="dictForm"  role="form" method="post" action="dict/save">
     <div class="form-group" >
         <label for="type">字典类型:</label>
         <input type="text" class="form-control" name="type" id="type"  placeholder="请输入字典类型" />
@@ -52,7 +52,7 @@
                         },
                         threshold :  2 , //有6字符以上才发送ajax请求，（input中输入一个字符，插件会向服务器发送一次，设置限制，6字符以上才开始）
                         remote: {//ajax验证。server result:{"valid",true or false} 向服务发送当前input name值，获得一个json数据。例表示正确：{"valid",true}
-                            url: "http://127.0.0.1:5100/v1/dinner/dict/isExist",//验证地址
+                            url: api_url+"dict/isExist",//验证地址
                             data:function(validator) {// 获取需要传送到后台的验证的数据
                                 return {
                                     type:$('#type').val(),
@@ -91,7 +91,7 @@
             var bootstrapValidator = $("#dictForm", window.top.document).data('bootstrapValidator');
             bootstrapValidator.validate();
             if(bootstrapValidator.isValid()){
-                $.post($("#dictForm",window.top.document).attr('action'),$("#dictForm",window.top.document).serialize(),function(e){
+                $.post(api_url+$("#dictForm",window.top.document).attr('action'),$("#dictForm",window.top.document).serialize(),function(e){
                     if(e.result){
                         $('.modal-dialog', window.top.document).parent('div').remove()
                         $('body', window.top.document).find('.modal-backdrop').remove();

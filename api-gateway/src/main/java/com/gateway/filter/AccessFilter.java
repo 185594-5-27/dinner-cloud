@@ -68,7 +68,9 @@ public class AccessFilter extends ZuulFilter {
         // 设置允许跨域访问Access-Control-Allow-Origin设置的为当前dinner工程的IP+端口
         response.setHeader("Access-Control-Allow-Headers", "Authentication");
         response.setHeader("Access-Control-Allow-Methods","POST,GET,OPTIONS,DELETE");
-        response.setHeader("Access-Control-Allow-Origin","http://127.0.0.1:8080");
+        response.setHeader("Access-Control-Allow-Origin",request.getHeader("Origin"));
+        response.setHeader("Access-Control-Allow-Headers", "x-requested-with, Content-Type, content-type");
+
         log.info("send {} request to{}", request.getMethod () ,request.getRequestURL().toString());
         Object accessToken = request.getParameter("token");
          if(accessToken == null) {

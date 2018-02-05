@@ -51,7 +51,7 @@
 
     function initTable(){
         $('#dict-table').bootstrapTable({
-            url:"http://127.0.0.1:5100/v1/dinner/dict/list",
+            url:api_url+"dict/list",
             height:  winWidth<=415?721:$(window.parent.document).find("#wrapper").height() - 252,
             width:$(window).width(),
             showColumns:true,
@@ -93,7 +93,7 @@
                         }
                         window.Ewin.confirm({title:'提示',message:'是否要删除您所选择的记录？',width:500}).on(function (e) {
                             if (e) {
-                                $.post("http://127.0.0.1:5100/v1/dinner/dict/removeBath",{json:JSON.stringify(rows)},function(e){
+                                $.post(api_url+"dict/removeBath",{json:JSON.stringify(rows)},function(e){
                                    if(e.result){
                                        window.Ewin.alert({message:e.msg});
                                        doQuery();

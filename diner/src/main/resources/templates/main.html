@@ -16,10 +16,9 @@
             }],
             showIndex: 0,
             loadAll: false
-        })
-        var token = [[${session.token }]];
-        $.fn.bootstrapTree({url:"http://127.0.0.1:5100/v1/dinner/tree/mainTree?token="+token,treeId:'menu_tree',tabId:"tabContainer"});
-        $.fn.dictUtil({url:"http://127.0.0.1:5100/v1/dinner/dict/loadDict?token="+token});
+        });
+        $.fn.bootstrapTree({url:api_url+"tree/mainTree",treeId:'menu_tree',tabId:"tabContainer"});
+        $.fn.dictUtil({url:api_url+"dict/loadDict"});
     });
 </script>
 <body >

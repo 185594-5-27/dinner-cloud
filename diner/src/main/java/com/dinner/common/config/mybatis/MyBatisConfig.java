@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 * @create 2017/9/25 0025 
 */
 @Configuration
-@MapperScan("com.*.dao")
+@MapperScan("com.dinner.*.dao")
 public class MyBatisConfig {
 
 }

@@ -4,11 +4,11 @@ package com.dinner.common.config.secruity;
 
 import com.base.util.ip.IPUtil;
 import com.base.util.redis.RedisCache;
-import com.dinner.entity.User;
 import com.dinner.common.util.user.UserInfoUtil;
 import com.dinner.common.util.uuid.Uuid;
-import com.dinner.dao.UserDao;
-import com.dinner.mapper.UserMapper;
+import com.dinner.sys.dao.UserDao;
+import com.dinner.sys.entity.User;
+import com.dinner.sys.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.LockedException;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -1,5 +1,4 @@
 $(function () {
-    var token = [[${session.token }]];
     hookAjax({
         onreadystatechange:function(xhr){
            // console.log("onreadystatechange called: %O",xhr)
@@ -22,7 +21,7 @@ $(function () {
         },
         send:function(arg,xhr){
            // console.log("send called: %O",arg[0])
-            xhr.setRequestHeader("_custom_header_","ajaxhook")
+            //xhr.setRequestHeader("_custom_header_","ajaxhook")
         },
         setRequestHeader:function(arg,xhr){
            // console.log("setRequestHeader called!",arg)

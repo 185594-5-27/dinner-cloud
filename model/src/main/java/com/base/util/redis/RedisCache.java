@@ -8,7 +8,6 @@ import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.RedisSerializer;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -17,7 +16,6 @@ import java.util.concurrent.TimeUnit;
 /**
  * 类描述：redis操作工具类
  */
-@Repository
 public class RedisCache {
 
     @Autowired

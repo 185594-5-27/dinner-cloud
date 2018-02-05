@@ -1,6 +1,6 @@
-package com.dinner.mapper;
+package com.dinner.sys.mapper;
 
-import com.dinner.entity.User;
+import com.dinner.sys.entity.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;

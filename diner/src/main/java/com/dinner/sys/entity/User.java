@@ -1,4 +1,4 @@
-package com.dinner.entity;
+package com.dinner.sys.entity;
 
 
 import com.base.entity.UserRole;
