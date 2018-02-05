@@ -88,7 +88,7 @@
                         },
                         threshold :  6 , //有6字符以上才发送ajax请求，（input中输入一个字符，插件会向服务器发送一次，设置限制，6字符以上才开始）
                         remote: {//ajax验证。server result:{"valid",true or false} 向服务发送当前input name值，获得一个json数据。例表示正确：{"valid",true}
-                            url: "user/isExist",//验证地址
+                            url: api_url+ "user/isExist",//验证地址
                             data:function(validator) {// 获取需要传送到后台的验证的数据
                                 return {
                                     login:$('#login').val()
@@ -200,7 +200,7 @@
             var bootstrapValidator = $("#userForm", window.top.document).data('bootstrapValidator');
             bootstrapValidator.validate();
             if(bootstrapValidator.isValid()){
-                $.post($("#userForm",window.top.document).attr('action'),$("#userForm",window.top.document).serialize(),function(e){
+                $.post(api_url+$("#userForm",window.top.document).attr('action'),$("#userForm",window.top.document).serialize(),function(e){
                     if(e.result){
                         $('.modal-dialog', window.top.document).parent('div').remove()
                         $('body', window.top.document).find('.modal-backdrop').remove();
@@ -222,7 +222,7 @@
         });
 
         $.fn.checkbox({
-            url:"user/loadRoles",
+            url:api_url+"user/loadRoles",
             id:"roleList",
             val:"id",
             showVal:"roleName",
@@ -261,7 +261,7 @@
             }
         };
 
-        $.post("/group/loadGroupTree",function(info){
+        $.post(api_url+"group/loadGroupTree",function(info){
             var t = $("#groupZtree");
             t = $.fn.zTree.init(t, setting,info.data);
         })
