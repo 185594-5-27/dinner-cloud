@@ -18,6 +18,9 @@ public abstract class GenericController<T> {
     /**修改页面路径*/
     public final static String UPDATEPAGE = "/update";
 
+    /**新增页面路径*/
+    public final static String ADDPAGE = "/add";
+
     /**
      * Controller基路径
      * */
@@ -43,6 +46,15 @@ public abstract class GenericController<T> {
             }
         }
         return basePath;
+    }
+
+    /**
+     * 功能描述：直接跳转到添加数据的页面
+     * @return
+     */
+    @RequestMapping(value = "/addPage",method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
+    public String addPage() throws Exception{
+        return getPageBaseRoot()+ADDPAGE;
     }
 
     /**

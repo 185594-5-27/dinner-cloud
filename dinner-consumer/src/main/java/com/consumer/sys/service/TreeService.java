@@ -20,4 +20,11 @@ public interface TreeService extends GenericService<Tree,QueryTree> {
     @RequestMapping(value="/mainTree",method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
     Map<String,Object> mainTree(@RequestParam("token") String token);
 
+    /**
+     * 功能描述：直接加载整个菜单树的数据(且必须要有管理员权限才可以加载该菜单树的数据)
+     * @return
+     */
+    @RequestMapping(value = "/loadUserTree",method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
+    Map<String,Object> loadUserTree();
+
 }

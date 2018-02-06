@@ -26,12 +26,10 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
         registry.addViewController("/home").setViewName("home");
         // 字典列表页
         registry.addViewController("/dictList").setViewName("/sys/dict/dictList");
-        // 添加字典
-        registry.addViewController("/dict/addPage").setViewName("/sys/dict/add");
         // 用户列表页
         registry.addViewController("/userList").setViewName("/sys/user/userList");
-        // 添加用户
-        registry.addViewController("/user/addPage").setViewName("/sys/user/add");
+        // 角色列表页
+        registry.addViewController("/userRoleList").setViewName("/sys/role/roleList");
 
     }
 

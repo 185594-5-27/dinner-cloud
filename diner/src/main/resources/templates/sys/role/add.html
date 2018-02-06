@@ -88,7 +88,7 @@
             var bootstrapValidator = $("#roleForm", window.top.document).data('bootstrapValidator');
             bootstrapValidator.validate();
             if(bootstrapValidator.isValid()){
-                $.post($("#roleForm",window.top.document).attr('action'),$("#roleForm",window.top.document).serialize(),function(e){
+                $.post(api_url+$("#roleForm",window.top.document).attr('action'),$("#roleForm",window.top.document).serialize(),function(e){
                     if(e.result){
                         $('.modal-dialog', window.top.document).parent('div').remove()
                         $('body', window.top.document).find('.modal-backdrop').remove();
@@ -133,7 +133,7 @@
             }
         };
 
-        $.post("/tree/loadUserTree",function(info){
+        $.post(api_url+"tree/loadUserTree",function(info){
             var t = $("#roleZtree");
             t = $.fn.zTree.init(t, setting,info.data);
         })
