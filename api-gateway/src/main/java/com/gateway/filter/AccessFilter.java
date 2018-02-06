@@ -69,9 +69,8 @@ public class AccessFilter extends ZuulFilter {
         response.setHeader("Access-Control-Allow-Headers", "Authentication");
         response.setHeader("Access-Control-Allow-Methods","POST,GET,OPTIONS,DELETE");
         response.setHeader("Access-Control-Allow-Origin",request.getHeader("Origin"));
-        response.setHeader("Access-Control-Allow-Headers", "x-requested-with, Content-Type, content-type");
 
-        log.info("send {} request to{}", request.getMethod () ,request.getRequestURL().toString());
+        log.info("send {} request to{}", request.getMethod () ,request.getRequestURL().toString()+"--"+ request.getContentType());
         Object accessToken = request.getParameter("token");
          if(accessToken == null) {
             log.warn("access token is empty");

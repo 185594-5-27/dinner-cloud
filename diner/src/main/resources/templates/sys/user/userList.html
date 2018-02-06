@@ -54,7 +54,8 @@
         }
         window.Ewin.confirm({title: '提示', message: confirmTitle, width: 500}).on(function (e) {
             if (e) {
-                $.post("/user/userControl",{state:state,id:id},function(data){
+                var post_data = {'state':state,'id':id};
+                $.post(api_url+"user/userControl",post_data,function(data){
                     if(data.result){
                         window.Ewin.alert({message:'操作成功!'});
                         doQuery();
@@ -68,7 +69,7 @@
 
     function initTable(){
         $('#user-table').bootstrapTable({
-            url:api_url+"/user/list",
+            url:api_url+"user/list",
             height:  winWidth<=415?825:$(window.parent.document).find("#wrapper").height() - 252,
             width:$(window).width(),
             showColumns:true,

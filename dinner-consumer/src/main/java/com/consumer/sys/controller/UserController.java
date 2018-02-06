@@ -37,7 +37,7 @@ public class UserController extends GenericController<User,QueryUser> {
      * @return
      */
     @RequestMapping(value="/userControl",method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
-    public Map<String,Object> userControl(@RequestBody User entity){
+    public Map<String,Object> userControl(User entity){
         return userService.userControl(entity);
     }
 
