@@ -57,7 +57,7 @@
             }else{
                 window.Ewin.confirm({title: '提示', message: '是否要删除您当前选中的组织机构？', width: 500}).on(function (e) {
                     if (e) {
-                        $.post("group/remove",{groupId:treeNode.groupId},function(e){
+                        $.post(api_url+"group/remove",{groupId:treeNode.groupId},function(e){
                             if(e.result){
                                 zTree.removeNode(treeNode);
                                 window.Ewin.alert({message:e.msg});
@@ -110,9 +110,9 @@
                 $("#groupParentNode").attr("value",treeNode.parentNode);
                 $("#groupNode").attr("value",treeNode.node);
                 $("#groupQueryTitle").html("查询条件（"+treeNode.name+"）")
-                doQuery();
                 if (treeNode.isParent) {
                     //zTree.expandNode(treeNode);
+                    doQuery();
                     return false;
                 } else {
                     doQuery();
@@ -134,7 +134,7 @@
     }
 
     $(function() {
-        $.post("/group/loadGroupTree",function(info){
+        $.post(api_url+"group/loadGroupTree",function(info){
             var t = $("#tree");
             t = $.fn.zTree.init(t, setting,info.data);
             $("#groupParentNode").attr("value",$.fn.zTree.getZTreeObj('tree').getNodes()[0].parentNode);
@@ -153,7 +153,7 @@
 
     function initTable(){
         $('#group-user-table').bootstrapTable({
-            url:"group/userList",
+            url:api_url+"group/userList",
             height:  winWidth<=415?621:$(window.parent.document).find("#wrapper").height() - 252,
             width:$(window).width(),
             showColumns:true,
@@ -195,7 +195,7 @@
                         }
                         window.Ewin.confirm({title:'提示',message:'是否要删除您所选择的记录？',width:500}).on(function (e) {
                             if (e) {
-                                $.post("user/removeBath",{json:JSON.stringify(rows)},function(e){
+                                $.post(api_url+"user/removeBath",{json:JSON.stringify(rows)},function(e){
                                     if(e.result){
                                         window.Ewin.alert({message:e.msg});
                                         doQuery();

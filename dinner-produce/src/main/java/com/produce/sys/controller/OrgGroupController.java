@@ -11,10 +11,7 @@ import com.produce.sys.service.OrgGroupService;
 import com.produce.sys.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -40,7 +37,23 @@ public class OrgGroupController extends GenericController<OrgGroup, QueryOrgGrou
     }
 
     @Override
-    public Map<String, Object> update(OrgGroup entity) throws Exception {
+    public Map<String, Object> get(@RequestBody OrgGroup entity) throws Exception {
+        Map<String,Object> result = new HashMap<String, Object>();
+        entity = orgGroupService.get(entity);
+        if(entity==null){
+            result.put(SystemStaticConst.RESULT,SystemStaticConst.FAIL);
+            result.put(SystemStaticConst.MSG,"获取数据失败！");
+        }else{
+            result.put(SystemStaticConst.RESULT,SystemStaticConst.SUCCESS);
+            result.put(SystemStaticConst.MSG,"获取数据成功！");
+            entity.setOrgGroup(orgGroupService.findByNode(entity.getParentNode()));
+            result.put("entity",entity);
+        }
+        return result;
+    }
+
+    @Override
+    public Map<String, Object> update(@RequestBody OrgGroup entity) throws Exception {
         Map<String,Object> result = new HashMap<String, Object>();
         OrgGroup update = new OrgGroup();
         update.setGroupId(entity.getGroupId());
@@ -65,7 +78,7 @@ public class OrgGroupController extends GenericController<OrgGroup, QueryOrgGrou
      * @return
      */
     @RequestMapping(value = "/userList",method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
-    public Map<String,Object> userList(QueryUser user){
+    public Map<String,Object> userList(@RequestBody QueryUser user){
         Map<String,Object> result = new HashMap<String, Object>();
         Page page = userService.findByGroupUserPage(user);
         result.put("totalCount",page.getTotal());
@@ -88,7 +101,7 @@ public class OrgGroupController extends GenericController<OrgGroup, QueryOrgGrou
     }
 
     @Override
-    public Map<String, Object> save(OrgGroup entity) throws Exception  {
+    public Map<String, Object> save(@RequestBody OrgGroup entity) throws Exception  {
         String max_node = getMaxNode(orgGroupService.getMaxOrgGroup(entity.getOrgGroup().getNode()),entity.getOrgGroup().getNode());
         entity.setParentNode(entity.getOrgGroup().getNode());
         entity.setNode(max_node);

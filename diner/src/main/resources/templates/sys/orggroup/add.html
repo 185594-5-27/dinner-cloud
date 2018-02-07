@@ -2,10 +2,10 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <body>
 <form id="groupForm"  role="form" method="post" action="group/save">
-    <input type="hidden" name="orgGroup.node" th:value="${entity.node}" />
+    <input type="hidden" name="orgGroup.node" id="groupParentNode" />
     <div class="form-group" >
         <label >父部门名称:</label>
-        <input type="text" class="form-control" th:value="${entity.name}" readonly="readonly"  />
+        <input type="text" class="form-control"  id="groupParentName" readonly="readonly"  />
     </div>
     <div class="form-group">
         <label for="name">部门名称:</label>
@@ -23,6 +23,13 @@
 <script th:inline="javascript">
     <![CDATA[
     $(function () {
+
+        $.post(api_url+"group/get",{groupId:[[${entity.groupId}]]},function(r){
+            var obj = r.entity;
+            $("#groupParentNode").attr("value",obj.node);
+            $("#groupParentName").attr("value",obj.name);
+        });
+
         $('#groupForm').bootstrapValidator({
             message: 'This value is not valid',
             feedbackIcons: {
@@ -70,13 +77,12 @@
 
         // 绑定dialog的确定按钮的监听事件
         $("#btnOk",window.top.document).click(function() {
-
             var bootstrapValidator = $("#groupForm", window.top.document).data('bootstrapValidator');
             bootstrapValidator.validate();
             if(bootstrapValidator.isValid()){
                 var zTree = $(window.parent.document).contents().find(".tab-pane.fade.active.in iframe")[0].contentWindow.zTree;
                 var selectNode = $(window.parent.document).contents().find(".tab-pane.fade.active.in iframe")[0].contentWindow.selectNode;
-                $.post($("#groupForm",window.top.document).attr('action'),$("#groupForm",window.top.document).serialize(),function(e){
+                $.post(api_url+$("#groupForm",window.top.document).attr('action'),$("#groupForm",window.top.document).serialize(),function(e){
                     if(e.result){
                         $('.modal-dialog', window.top.document).parent('div').remove()
                         $('body', window.top.document).find('.modal-backdrop').remove();

@@ -2,28 +2,43 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <body>
 <form id="groupForm"  role="form" method="post" action="group/update">
-    <input type="hidden" name="groupId" th:value="${entity.groupId}" />
-    <input type="hidden" name="orgGroup.node" th:value="${entity.orgGroup} ? ${entity.orgGroup.node} : '无'" />
+    <input type="hidden" name="groupId"  />
+    <input type="hidden" name="orgGroup.node" id="groupParentNode"  />
     <div class="form-group" >
         <label >父部门名称:</label>
-        <input type="text" class="form-control" th:value="${entity.orgGroup} ? ${entity.orgGroup.name} : '无'" readonly="readonly"  />
+        <input type="text" class="form-control" id="groupParentName"readonly="readonly"  />
     </div>
     <div class="form-group">
         <label for="name">部门名称:</label>
-        <input type="text" class="form-control" name="name" id="name" th:value="${entity.name}"  placeholder="请输入部门名称" />
+        <input type="text" class="form-control" name="name" id="name"   placeholder="请输入部门名称" />
     </div>
     <div class="form-group" >
         <label for="groupCode">部门编号:</label>
-        <input type="text" class="form-control" name="groupCode" id="groupCode" th:value="${entity.groupCode}" placeholder="请输入部门编号" />
+        <input type="text" class="form-control" name="groupCode" id="groupCode"  placeholder="请输入部门编号" />
     </div>
     <div class="form-group" >
         <label for="num">部门编制:</label>
-        <input type="text" class="form-control" name="num" id="num" th:value="${entity.num}"  placeholder="请输入部门编制" />
+        <input type="text" class="form-control" name="num" id="num"   placeholder="请输入部门编制" />
     </div>
 </form>
 <script th:inline="javascript">
     <![CDATA[
     $(function () {
+
+        $.post(api_url+"group/get",{groupId:[[${entity.groupId}]]},function(r){
+            var obj = r.entity;
+            if(obj.orgGroup=='null'||obj.orgGroup==null){
+                $("#groupParentNode").attr("value","无");
+                $("#groupParentName").attr("value","无");
+            }else{
+                $("#groupParentNode").attr("value",obj.orgGroup.node);
+                $("#groupParentName").attr("value",obj.orgGroup.name);
+            }
+
+            $.fn.loadForm(obj);
+        });
+
+
         $('#groupForm').bootstrapValidator({
             message: 'This value is not valid',
             feedbackIcons: {
@@ -76,7 +91,7 @@
             if(bootstrapValidator.isValid()){
                 var zTree = $(window.parent.document).contents().find(".tab-pane.fade.active.in iframe")[0].contentWindow.zTree;
                 var selectNode = $(window.parent.document).contents().find(".tab-pane.fade.active.in iframe")[0].contentWindow.selectNode;
-                $.post($("#groupForm",window.top.document).attr('action'),$("#groupForm",window.top.document).serialize(),function(e){
+                $.post(api_url+$("#groupForm",window.top.document).attr('action'),$("#groupForm",window.top.document).serialize(),function(e){
                     if(e.result){
                         $('.modal-dialog', window.top.document).parent('div').remove()
                         $('body', window.top.document).find('.modal-backdrop').remove();
