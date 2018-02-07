@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 
 import java.util.HashMap;
@@ -27,7 +28,7 @@ import java.util.Map;
 * @auther linzf
 * @create 2017/10/10 0010 
 */
-@Controller
+@RestController
 @RequestMapping("/tree")
 public class TreeController extends GenericController<Tree,QueryTree> {
 
@@ -47,7 +48,6 @@ public class TreeController extends GenericController<Tree,QueryTree> {
      * @return
      */
     @RequestMapping(value="/mainTree",method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody
     public Map<String,Object> mainTree(String token){
         Map<String,Object> result = new HashMap<String, Object>();
         List<Tree> trees = UserInfo.loadUserTree(treeService,(User)redisCache.getObject(token,User.class));
@@ -62,7 +62,6 @@ public class TreeController extends GenericController<Tree,QueryTree> {
      * @return
      */
     @RequestMapping(value = "/loadUserTree",method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody
     public Map<String,Object> loadUserTree(){
         Map<String,Object> result = new HashMap<String, Object>();
         List<Tree> treeList = treeService.query(null);
